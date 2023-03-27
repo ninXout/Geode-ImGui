@@ -10,6 +10,8 @@ USE_GEODE_NAMESPACE();
 void ImGuiHook::drawGUI() {
     ImGui::Begin("ImGui Hook!");
     ImGui::Text("Hello World!");
+    char message[50];
+    ImGui::InputText("lmao", message, IM_ARRAYSIZE(message));
     ImGui::End();
 }
 

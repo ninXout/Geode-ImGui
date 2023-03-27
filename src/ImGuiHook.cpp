@@ -13,27 +13,18 @@ ImGuiHook* ImGuiHook::get() {
 void ImGuiHook::draw() {
     if (m_visible) {
         ImGui::PushFont(m_defaultFont);
-        this->drawPages();
+        this->drawGUI();
         ImGui::PopFont();
     }
 }
 
-void ImGuiHook::setupFonts() {
-    
-    static constexpr auto add_font = [](
-        void* font, float size, const ImWchar* range
-    ) {
-        auto& io = ImGui::GetIO();
-        ImFontConfig config;
-        config.MergeMode = true;
-        auto* result = io.Fonts->AddFontFromMemoryTTF(
-            font, sizeof(font), size, nullptr, range
-        );
-        io.Fonts->Build();
-        return result;
-    };
-
-    //m_defaultFont = add_font(Font_OpenSans, 18.f, def_ranges);
+void ImGuiHook::setupFonts(const char* filepath, float size) {
+    auto& io = ImGui::GetIO();
+    ImFontConfig config;
+    config.MergeMode = true;
+    auto* result = io.Fonts->AddFontFromFileTTF(filepath, size);
+    io.Fonts->Build();
+    m_defaultFont = result;
 }
 
 void ImGuiHook::setup() {
@@ -44,7 +35,7 @@ void ImGuiHook::setup() {
     
     auto ctx = ImGui::CreateContext();
         
-    this->setupFonts();
+    //this->setupFonts();
     this->setupPlatform();
 }
 

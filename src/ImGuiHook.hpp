@@ -13,7 +13,7 @@ protected:
     bool m_setup = false;
     ImFont* m_defaultFont  = nullptr;
 
-    void setupFonts();
+    void setupFonts(const char* filepath, float size);
     void setupPlatform();
 
     void drawGUI();
