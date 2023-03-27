@@ -1,0 +1,9 @@
+{
+	"geode": "1.0.0",
+	"version": "v1.0.0",
+	"id": "ninXout.imguihook",
+	"name": "ImGuiHook",
+	"developer": "ninXout",
+	"description": "Geode ImGui Hook",
+	"repository": "https://github.com/ninXout/geode-imgui"
+}
