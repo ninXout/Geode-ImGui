@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.21)
+cmake_minimum_required(VERSION 3.3.0)
 set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
@@ -16,7 +16,8 @@ else()
     message(STATUS "Found Geode: $ENV{GEODE_SDK}")
 endif()
 
-set(GEODE_LINK_NIGHTLY ON)
+# bro most people don't build geode from source
+# set(GEODE_LINK_NIGHTLY ON)
 add_subdirectory($ENV{GEODE_SDK} $ENV{GEODE_SDK}/build)
 
 include(cmake/CPM.cmake)
@@ -35,7 +36,7 @@ target_sources(${PROJECT_NAME} PRIVATE
 )
 
 if(WIN32)
-    target_link_libraries(${PROJECT_NAME} opengl32 ${CMAKE_CURRENT_SOURCE_DIR}/GLEW/glew32.lib)
+    target_link_libraries(${PROJECT_NAME} opengl32)
 elseif(APPLE)
     target_link_libraries(${PROJECT_NAME} "-framework OpenGL")
 elseif(ANDROID)

@@ -5,7 +5,7 @@
 #include <imgui.h>
 #include "ImGui.hpp"
 
-USE_GEODE_NAMESPACE();
+using namespace geode::prelude;
 
 void ImGuiHook::drawGUI() {
     ImGui::Begin("ImGui Hook!");
@@ -17,7 +17,7 @@ void ImGuiHook::drawGUI() {
 
 class $modify(CCKeyboardDispatcher) {
     bool dispatchKeyboardMSG(enumKeyCodes key, bool down) {
-        if (down && key == KEY_U) {
+        if (down && key == KEY_Tab) {
             ImGuiHook::get()->toggle();
             return true;
         }
