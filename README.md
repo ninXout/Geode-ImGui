@@ -1,3 +1,5 @@
+# WARNING: THIS REPO IS OUTDATED. FOR A BETTER VERSION, PLEASE VISIT https://github.com/matcool/gd-imgui-cocos
+
 # ImGui Hook for Geode
 
 Template to use for creating a ImGui menu in Geode. Write all ImGui code in ImGuiHook::DrawGUI.
